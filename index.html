@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixxer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark py-1 sticky-top ">
+            <div class="container  data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500"" >
+              <a class="navbar-brand" href="#">
+                <img src="./assets/images/logo.png" alt="">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                  </li>
+                  
+                </ul>
+                <a href="#" class="btn btn-brand ms-lg-3" data-bs-toggle="modal" data-bs-target="#bookingModal">Book an Appointment</a>
+                
+              </div>
+            </div>
+          </nav> 
+       
+          <!-- Home-->
+
+          <section id="home" class="pb-0">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-10">
+                        <h1>Fixxer – Your Trusted Appliance Repair Partner!</h1>
+                        <p>Fast, reliable repairs for your home appliances by expert technicians. Quick service, lasting solutions!</p>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <a href="#" class="btn btn-brand ms-lg-3" data-bs-toggle="modal" data-bs-target="#bookingModal">Book an Appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-image"></div>
+        </section>
+    
+
+
+          <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="bookingModalLabel">Book an Appointment</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="mb-3">
+                          <label for="applianceType" class="form-label">Appliance Type</label>
+                          <select class="form-select" id="applianceType">
+                              <option selected>Select an appliance</option>
+                              <option>Washing Machine</option>
+                              <option>Refrigerator</option>
+                              <option>Microwave</option>
+                              <option>Dishwasher</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="issueDescription" class="form-label">Describe the Issue</label>
+                          <textarea class="form-control" id="issueDescription" rows="3" placeholder="Please describe the problem you're experiencing"></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="appointmentDate" class="form-label">Select a Date</label>
+                          <input type="date" class="form-control" id="appointmentDate">
+                      </div>
+                      <div class="mb-3">
+                          <label for="preferredTime" class="form-label">Preferred Time</label>
+                          <select class="form-select" id="preferredTime">
+                              <option selected>Select a time</option>
+                              <option>Morning (9 AM - 12 PM)</option>
+                              <option>Afternoon (12 PM - 3 PM)</option>
+                              <option>Evening (3 PM - 6 PM)</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="name" class="form-label">Your Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="John Doe">
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email Address</label>
+                          <input type="email" class="form-control" id="email" placeholder="john@example.com">
+                      </div>
+                      <div class="mb-3">
+                          <label for="phone" class="form-label">Phone Number</label>
+                          <input type="tel" class="form-control" id="phone" placeholder="123-456-7890">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+          
+
+          <!-- Services -->
+
+          <section id="services" class="border-bottom" >
+            <div class="container">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <div class="section-title  block">
+                    <h3>Our Services</h3>
+                    <h2>Reliable repairs for your Refrigerator, Washing Machine, and Microwave.</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row gy-4">
+                <div class="col-lg-4 col-sn-6">
+                  <div class="service p-4">
+                    <div class="icon-box">
+                      <i class="ri-fridge-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">Refrigerator Repair</h5>
+                    <p>Keep your food fresh with our expert refrigerator repair services.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sn-6">
+                  <div class="service p-4">
+                    <div class="icon-box">
+                      <i class="ri-speaker-2-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">Washing Machine Repair</h5>
+                    <p>Get your clothes clean again with our washing machine repairs.</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sn-6">
+                  <div class="service p-4">
+                    <div class="icon-box">
+                      <i class="ri-safe-fill"></i>
+                    </div>
+                    <h5 class="mt-4 mb-3">Microwave Repair</h5>
+                    <p>Heat your meals efficiently with our microwave repair expertise.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- About -->
+           <section id="about"  class="pb-0 ">
+            <div class="container ">
+              <div class="row mt-0 justify-content-between" >
+                <div class="col-lg-5 gy-4 order-lg-first order-last">
+                  <div class="section-title block">
+                    <h3>About Fixxer</h3>
+                    <h2>We ensures swift and professional appliance repairs you can trust.</h2>
+                    <p>At Fixxer, we pride ourselves on delivering quick, reliable, and professional 
+                      appliance repair services. Our team of skilled technicians is committed to getting your 
+                      appliances back in working order with minimal disruption to your daily life.
+                    </p>
+                    
+                  </div>
+                </div>
+                <div class="col-lg-6 about-image">
+                  <img src="./assets/images/about.png" class="rounded-5 " alt="">
+                </div>
+              </div>
+            </div>
+            <div class="bg-image2"></div>
+           </section>
+
+           <!-- reviews -->
+            <section id="reviews">
+              <div class="container text-center">
+                <div id="carouselExample" class="carousel slide reviews-carousel m-auto">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="review p-5">
+                        <img src="./assets/images/reviews.png" alt="">
+                        <p class="my-4">"Fixxer fixed my refrigerator quickly and professionally. Highly recommended!"</p>
+                        <h5>John Doe</h5>
+                      </div>
+                      
+                    </div>
+                    <div class="carousel-item">
+                      <div class="review p-5">
+                        <img src="./assets/images/reviews.png" alt="">
+                        <p class="my-4">"Great service! They repaired my washing machine and it's working like new."</p>
+                        <h5>Jane Smith</h5>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="review p-5">
+                        <img src="./assets/images/reviews.png" alt="">
+                        <p class="my-4">"Prompt and efficient microwave repair. I'm very satisfied with their service."</p>
+                        <h5>Mike Johnson</h5>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+          <div class="row justify-content-center  block">
+              <div class="col-lg-6">
+                  <div class="contact-form">
+                      <h2>Contact Us</h2>
+                      <form id="contactForm">
+                          <div class="mb-3">
+                              <label for="name" class="form-label">Name</label>
+                              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="email" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="message" class="form-label">Message</label>
+                              <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Send Message</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-top py-4">
+      <div class="container">
+        <div class="row justify-content-between text-center text-lg-start">
+          <div class="col-lg-2 col-md-3 col-6 mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start">
+            <img src="./assets/images/logo.png" alt="Fixxer Logo" class="img-fluid">
+          </div>
+          <div class="col-lg-2 col-md-3 col-6 mb-3">
+            <h5>SERVICES</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="servicelink">Refrigerator</a></li>
+              <li><a href="#" class="servicelink">Washing Machine</a></li>
+              <li><a href="#" class="servicelink">Microwave</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-3 col-6 mb-3">
+            <h5>CONTACT US</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="contactlink">Email</a></li>
+              <li><a href="#" class="contactlink">WhatsApp</a></li>
+              <li><a href="#" class="contactlink">+91 222 222 2222</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-3 col-6 mb-3">
+            <h5>Follow On</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="follolink">Twitter</a></li>
+              <li><a href="#" class="follolink">Facebook</a></li>
+              <li><a href="#" class="follolink">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom py-3 text-center">
+      <p class="mb-0">© 2025 Fixxer. All rights reserved.</p>
+    </div>
+  </footer>  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+</body>
+</html>
