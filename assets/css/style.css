@@ -112,8 +112,7 @@ section{
 }
 .service:hover{
     background: linear-gradient(to right, rgb(2, 51, 103), rgb(0, 180, 255));
-    transform:translateY(-8px);
-    
+    transform: translateY(-8px);
 }
 
 .icon-box{
