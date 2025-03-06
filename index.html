@@ -32,8 +32,8 @@
               <a class="navbar-brand" href="#">
                 <img src="./assets/images/logo.png" alt="">
               </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -83,15 +83,19 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <form>
+                  <form id="repairForm">
                       <div class="mb-3">
                           <label for="applianceType" class="form-label">Appliance Type</label>
                           <select class="form-select" id="applianceType">
                               <option selected>Select an appliance</option>
-                              <option>Washing Machine</option>
-                              <option>Refrigerator</option>
-                              <option>Microwave</option>
-                              <option>Dishwasher</option>
+                              <option>Semi Automatic Washing Machine(Rs 249)</option>
+                              <option>Fully Automatic Washing Machine(Rs 299)</option>
+                              <option>Single door Refrigerator(Rs 249)</option>
+                              <option>Single door Refrigerator(Rs 299)</option>
+                              <option>AC Repair(Rs 299)</option>
+                              <option>AC Servicing(Rs 499)</option>
+                              <option>Microwave and more(Rs 249)</option>
+                             
                           </select>
                       </div>
                       <div class="mb-3">
@@ -123,7 +127,7 @@
                           <label for="phone" class="form-label">Phone Number</label>
                           <input type="tel" class="form-control" id="phone" placeholder="123-456-7890">
                       </div>
-                      <button type="submit" class="btn btn-primary" >Submit</button>
+                      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                       <!-- <div class="popup" id="popup">
                         <img src="./assets/images/404-tick.png">
                         <h2>Thank You!</h2>
@@ -265,16 +269,16 @@
                       <h2>Contact Us</h2>
                       <form id="contactForm">
                           <div class="mb-3">
-                              <label for="name" class="form-label">Name</label>
-                              <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                              <label for="name" class="form-label">Your name</label>
+                              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
                           </div>
                           <div class="mb-3">
-                              <label for="email" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                              <label for="email" class="form-label">Your email</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                           </div>
                           <div class="mb-3">
-                              <label for="message" class="form-label">Message</label>
-                              <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                              <label for="message" class="form-label">Write your messages here</label>
+                              <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
                           </div>
                           <button type="submit" class="btn btn-primary">Send Message</button>
                       </form>
@@ -289,7 +293,7 @@
       <div class="container">
         <div class="row justify-content-between text-center text-lg-start">
           <div class="col-lg-2 col-md-3 col-6 mb-3 mb-lg-0 d-flex justify-content-center justify-content-lg-start">
-            <img src="./assets/images/logo.png" alt="Fixxer Logo" class="img-fluid">
+            <img src="./assets/images/logo2.png" alt="Fixxer Logo" class="img-fluid">
           </div>
           <div class="col-lg-2 col-md-3 col-6 mb-3">
             <h5>SERVICES</h5>
@@ -319,7 +323,7 @@
       </div>
     </div>
     
-    <div class="footer-bottom py-3 text-center">
+    <div class="footer-bottom py-3 text-center footer">
       <p class="mb-0">© 2025 Fixxer. All rights reserved.</p>
     </div>
   </footer>  
@@ -327,6 +331,69 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    
+      // Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAyaYehUjPuImjGHanftUdA-DmUKVNiEmA",
+        authDomain: "form-98da6.firebaseapp.com",
+        databaseURL: "https://form-98da6-default-rtdb.firebaseio.com/", // Ensure this is correct
+        projectId: "form-98da6",
+        storageBucket: "form-98da6.appspot.com",
+        messagingSenderId: "416003651903",
+        appId: "1:416003651903:web:0fe678b369671f949ebb8a"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+    
+      // Get form element
+      const form = document.getElementById("repairForm");
+    
+      // Event listener for form submission
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent default form submission
+    
+        // Get form values
+        const applianceType = document.getElementById("applianceType").value.trim();
+        const issueDescription = document.getElementById("issueDescription").value.trim();
+        const appointmentDate = document.getElementById("appointmentDate").value.trim();
+        const preferredTime = document.getElementById("preferredTime").value.trim();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+    
+        // Validation check
+        if (!applianceType || !issueDescription || !appointmentDate || !preferredTime || !name || !email || !phone) {
+          alert("Please fill in all fields!");
+          return;
+        }
+    
+        // Firebase database reference
+        const userRef = ref(db, "users/" + applianceType);
+    
+        // Push data to Firebase
+        set(userRef, {
+          applianceType,
+          issueDescription,
+          appointmentDate,
+          preferredTime,
+          name,
+          email,
+          phone
+        })
+          .then(() => {
+            alert("Data successfully saved to Firebase!");
+            form.reset(); // Reset form after successful submission
+          })
+          .catch((error) => {
+            console.error("Error writing to database: ", error);
+          });
+      });
+    </script>
     <script src="./assets/js/main.js"></script>
     
 </body>
