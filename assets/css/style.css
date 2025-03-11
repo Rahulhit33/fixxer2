@@ -233,6 +233,7 @@ footer{
     padding: 24px;
     animation: fade-up 1000ms forwards;
     animation-delay: 1000ms;
+    -webkit-animation: fade-up 1000ms forwards;
 }
 
 @keyframes fade-up {

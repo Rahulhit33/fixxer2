@@ -72,3 +72,71 @@ document.querySelector(".logos").appendChild(copy);
 
 let popup = document.getElementById("popup");
 
+
+
+//-------------------- Database ------------------
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyA7LWw7waC8HMtFOi4bZNBsn1__ti6Alsw",
+    authDomain: "fixxer2.firebaseapp.com",
+    databaseURL: "https://fixxer2-default-rtdb.firebaseio.com",
+    projectId: "fixxer2",
+    storageBucket: "fixxer2.firebasestorage.app",
+    messagingSenderId: "604968278767",
+    appId: "1:604968278767:web:76d63b77d7f1cd592bd91a"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Reference your database
+var appointmentFormDB = firebase.database().ref('appointmentForm');
+document.getElementById('repairForm').addEventListener('submit', submitForm);
+
+function submitForm(e) {
+    e.preventDefault();
+
+    var applianceType = getElementVal('applianceType');
+    var issueDescription = getElementVal('issueDescription');
+    var appointmentDate = getElementVal('appointmentDate');
+    var preferredTime = getElementVal('preferredTime');
+    var name = getElementVal('name');
+    var email = getElementVal('email');
+    var phone = getElementVal('phone');
+
+    // Validation: Check if all fields are filled
+    if (!applianceType || !issueDescription || !appointmentDate || !preferredTime || !name || !email || !phone) {
+        alert('Please fill in all the fields before submitting.');
+        return;
+    }
+
+    // Save data to Firebase
+    saveData(applianceType, issueDescription, appointmentDate, preferredTime, name, email, phone);
+
+    // Show success message
+    document.getElementById('successMessage').style.display = 'block';
+
+    // Reset the form
+    document.getElementById('repairForm').reset();
+
+    // Hide the success message after 3 seconds
+    setTimeout(() => {
+        document.getElementById('successMessage').style.display = 'none';
+    }, 3000);
+}
+
+const saveData = (applianceType, issueDescription, appointmentDate, preferredTime, name, email, phone) => {
+    var newAppointmentForm = appointmentFormDB.push();
+    newAppointmentForm.set({
+        applianceType: applianceType,
+        issueDescription: issueDescription,
+        appointmentDate: appointmentDate,
+        preferredTime: preferredTime,
+        name: name,
+        email: email,
+        phone: phone
+    });
+};
+
+const getElementVal = (id) => {
+    return document.getElementById(id).value;
+};
